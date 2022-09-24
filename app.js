@@ -36,10 +36,10 @@ rl.on('close', () => {
         value.change = value.pop15 / value.pop10
     }
     const rankingArray = Array.from(map).sort((pair1, pair2) => {
-        return pair2[1].change - pair1[1].change
+        return pair1[1].change - pair2[1].change
     })
-    const rankingStrings = rankingArray.map((pair) => {
-        return pair[0] + ': ' + pair[1].pop10 + '=>' + pair[1].pop15 + ' 変化率：' + pair[1].change
+    const rankingStrings = rankingArray.map((pair, i) => {
+        return (i + 1) + '位　' + pair[0] + ': ' + pair[1].pop10 + '=>' + pair[1].pop15 + ' 変化率：' + pair[1].change
     })
     console.log(rankingStrings)
 })
